@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>สอบกลางภาค 2/2569 · ป.6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f6fb; --card: #ffffff; --ink: #1f1b2e; --muted: #6b6780;
+    --line: #e4e1ee; --accent: #6d3fd6; --accent-soft: #efe8ff;
+    --thai: #dbe7f5; --math: #f8e0d2; --social: #fdf0c4; --sci: #dcebd3; --eng: #e6cff5;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: 'Sarabun', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+    font-size: 17px; line-height: 1.65;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 20px 16px 60px; }
+  header h1 { margin: 0 0 4px; font-size: 1.7rem; line-height: 1.3; }
+  header p { margin: 0; color: var(--muted); }
+  .countdown {
+    margin: 16px 0; padding: 14px 18px; border-radius: 14px;
+    background: var(--accent); color: #fff; font-weight: 500;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .countdown b { font-size: 1.4rem; }
+  nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 22px; }
+  nav a {
+    text-decoration: none; color: var(--accent); background: var(--accent-soft);
+    padding: 5px 13px; border-radius: 999px; font-size: .95rem; font-weight: 500;
+  }
+  section { margin-top: 30px; }
+  h2 { font-size: 1.3rem; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--line); }
+  .note { color: var(--muted); font-size: .95rem; margin: 6px 0 12px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px 18px; margin: 12px 0; border-left: 8px solid var(--line);
+  }
+  .card.thai { border-left-color: #8fb1dc; } .card.math { border-left-color: #e9a47f; }
+  .card.social { border-left-color: #e8c84a; } .card.sci { border-left-color: #93c178; }
+  .card.eng { border-left-color: #b57fe0; } .card.other { border-left-color: #9a96ad; }
+  .card h3 { margin: 0 0 4px; font-size: 1.12rem; display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+  .card h3 .prog { margin-left: auto; font-size: .85rem; font-weight: 500; color: var(--muted); }
+  .card h4 { margin: 12px 0 2px; font-size: 1rem; color: var(--accent); }
+  .when { font-size: .85rem; font-weight: 500; color: var(--muted); }
+  ul.topics { list-style: none; margin: 4px 0; padding: 0; }
+  ul.topics li { padding: 3px 0; }
+  ul.topics label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+  ul.topics input { width: 20px; height: 20px; margin-top: 5px; flex: none; accent-color: var(--accent); }
+  ul.topics li.done span { color: var(--muted); text-decoration: line-through; }
+  .sub { display: block; color: var(--muted); font-size: .93rem; }
+  .zh { font-size: 1.25rem; font-weight: 500; }
+  .py { color: var(--muted); font-size: .9rem; }
+  .tablewrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--line); background: var(--card); }
+  table { border-collapse: collapse; width: 100%; min-width: 420px; }
+  th, td { padding: 9px 12px; text-align: center; border-bottom: 1px solid var(--line); }
+  th { background: var(--accent-soft); font-weight: 700; }
+  tr:last-child td { border-bottom: 0; }
+  tr.thai td { background: var(--thai); } tr.math td { background: var(--math); }
+  tr.social td { background: var(--social); } tr.sci td { background: var(--sci); }
+  tr.eng td { background: var(--eng); }
+  tr.break td { color: var(--muted); font-size: .93rem; }
+  td.subj { font-weight: 700; }
+  .subjects { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .subjects a {
+    display: block; text-decoration: none; color: var(--ink); background: var(--card);
+    border: 1px solid var(--line); border-top: 6px solid var(--accent); border-radius: 14px; padding: 12px 14px;
+  }
+  h3.grp { margin: 16px 0 8px; font-size: 1.08rem; }
+  h3.grp span { display: block; font-size: .86rem; font-weight: 400; color: var(--muted); }
+  .subjects a b { display: block; font-size: 1.08rem; }
+  .subjects a span { display: block; font-size: .86rem; color: var(--muted); }
+  .subjects a .best { color: var(--accent); font-weight: 700; }
+  a.practice { display: inline-block; margin-top: 10px; text-decoration: none; font-weight: 700; font-size: .95rem; color: #fff; background: var(--accent); padding: 6px 16px; border-radius: 999px; }
+  .todaybox { background: var(--card); border: 2px solid var(--accent); border-radius: 14px; padding: 12px 16px; margin: 0 0 4px; }
+  .todaybox h2 { border: 0; margin: 0 0 4px; padding: 0; font-size: 1.15rem; }
+  .todaybox h2 .cnt { font-size: .85rem; font-weight: 500; color: var(--muted); margin-left: 6px; }
+  .todaybox p.sync { margin: 0; font-size: .8rem; color: var(--muted); min-height: 1.2em; }
+  .todaybox p.sync.off { color: #b45309; }
+  .todaybox h3 { margin: 16px -8px 2px; padding: 5px 10px; border-radius: 10px; background: var(--accent-soft); font-size: 1.08rem; display: flex; gap: 8px; align-items: baseline; }   /* แถบหัวกลุ่ม ให้เห็นชัดว่าแยกนอกตาราง / ในตาราง */
+  .todaybox h2 + h3 { margin-top: 8px; }
+  .todaybox h3 .cnt { margin-left: auto; font-size: .85rem; font-weight: 500; color: var(--muted); }
+  .todaybox p.when { margin: 0 0 4px; color: var(--muted); font-size: .88rem; line-height: 1.5; }
+  [hidden] { display: none !important; }
+  .todaybox ul { list-style: none; margin: 0; padding: 0; }
+  .todaybox li { padding: 3px 0; display: flex; gap: 8px; align-items: flex-start; }
+  .todaybox li label { flex: 1; display: flex; gap: 8px; align-items: flex-start; cursor: pointer; }
+  .todaybox li input { width: 20px; height: 20px; margin-top: 4px; flex: none; accent-color: var(--accent); }
+  .todaybox li a { color: var(--accent); font-weight: 700; text-decoration: none; white-space: nowrap; }
+  .todaybox .subj { display: inline-block; font-size: .8rem; font-weight: 700; background: var(--accent-soft); color: var(--accent); border-radius: 6px; padding: 0 7px; margin-right: 6px; }
+  .todaybox li.done .t { color: var(--muted); text-decoration: line-through; }
+  .todaybox .more { display: inline-block; margin-top: 8px; color: var(--accent); font-weight: 700; text-decoration: none; }
+  .tools { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+  button { font: inherit; font-size: .9rem; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+  footer { margin-top: 36px; color: var(--muted); font-size: .88rem; text-align: center; }
+  @media print {
+    body { background: #fff; font-size: 13px; } nav, .tools, .countdown, #practice, a.practice { display: none; }
+    /* หน้าแรกเหลือแค่เช็กลิสต์ จึงพิมพ์เช็กลิสต์ออกมา (ไม่พิมพ์ปุ่ม "เปิด" และบรรทัดสถานะ) */
+    .todaybox { border: 0; padding: 0; } .todaybox li a, .todaybox p.sync { display: none; } .todaybox li { break-inside: avoid; }
+    .card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>สอบกลางภาคเรียนที่ 2 ปีการศึกษา 2569</h1>
+  <p>ชั้นประถมศึกษาปีที่ 6 · ตารางสอบ สรุปเนื้อหา และข้อสอบให้ลองทำ</p>
+</header>
+
+<div class="countdown" id="countdown"><div>สอบนอกตาราง: <b>30 พ.ย. – 3 ธ.ค. 69</b></div><div>สอบในตาราง: <b>ศุกร์ 11 ธ.ค. 69</b></div></div>
+
+<div class="todaybox" id="todaybox"></div>
+
+<!-- ซ่อนไว้ก่อน (ผู้ใช้ขอ 13 พ.ย. 69: หน้าแรกเอาแค่เช็กลิสต์) แสดงอีกครั้งโดยลบ hidden ออกจาก nav และ section ทั้ง 4 -->
+<nav hidden>
+  <a href="plan.html">เช็กลิสต์ (ติ๊กที่ทำแล้ว)</a>
+  <a href="#practice">ทบทวน + ทำข้อสอบ</a>
+  <a href="#off-table">เนื้อหาสอบนอกตาราง</a>
+  <a href="#schedule">ตารางสอบ</a>
+  <a href="#in-table">เนื้อหาสอบในตาราง</a>
+</nav>
+
+<section id="practice" hidden>
+  <h2>ทบทวนและลองทำข้อสอบ</h2>
+  <p class="note">เลือกวิชา → อ่านสรุปทีละเรื่อง → ลองทำข้อสอบ มีเฉลยพร้อมคำอธิบายทุกข้อ ทำซ้ำได้ไม่จำกัด</p>
+  <h3 class="grp">📝 สอบนอกตาราง <span>สอบในคาบเรียน · English 30 พ.ย. – 3 ธ.ค. คาบ 9 · วิชาอื่นตามที่ครูนัด</span></h3>
+  <div class="subjects" id="subjects-off"></div>
+  <h3 class="grp">📅 สอบในตาราง <span>ศุกร์ 11 ธ.ค. 69 · 5 วิชาในวันเดียว</span></h3>
+  <div class="subjects" id="subjects"></div>
+</section>
+
+<section id="off-table" hidden>
+  <h2>เนื้อหาสอบนอกตาราง</h2>
+  <p class="note">English สอบระหว่างวันที่ <b>30 พฤศจิกายน – 3 ธันวาคม 2569</b> ในคาบเรียนที่ 9 · วิชาอื่นสอบในคาบเรียนตามที่ครูนัด · ติ๊กถูกหัวข้อที่ทบทวนแล้วได้ เครื่องนี้จะจำไว้ให้</p>
+
+  <div class="card eng" data-ci="5">
+    <h3>English for Daily Life 6 <span class="when">30 พ.ย. – 3 ธ.ค. คาบ 9</span></h3>
+    <h4>Unit 5: Was he causing trouble?</h4>
+    <ul class="topics">
+      <li>Gossip! Everybody's talking about it!</li>
+      <li>Vocabulary about bad behavior</li>
+      <li>Buying souvenirs</li>
+    </ul>
+    <h4>Unit 6: What should I do?</h4>
+    <ul class="topics">
+      <li>Teen life – and how to live it!</li>
+      <li>Vocabulary about illnesses and remedies</li>
+      <li>Asking for help at a pharmacy</li>
+    </ul>
+  </div>
+
+  <div class="card eng" data-ci="6">
+    <h3>Develop Reading Skills <span class="when">30 พ.ย. – 3 ธ.ค. คาบ 9</span></h3>
+    <h4>Unit 5: Health and Personal Care — Exercise 8 และ Exercise 16</h4>
+    <ul class="topics">
+      <li>Vocabulary: aggravate, outbreak, over the counter, lethargic, sluggish, replenish</li>
+      <li>Reading: Benefits of Drinking Water (pages 20–21)</li>
+      <li>Reading: Acne (pages 44–45)</li>
+    </ul>
+    <h4>Unit 6: Self-Improvement and Productivity — Exercise 24 และ Exercise 25</h4>
+    <ul class="topics">
+      <li>Vocabulary: slouch, daunting, caffeine, mugging, ambiguities</li>
+      <li>Reading: Boost Your Energy! (pages 68–69)</li>
+      <li>Reading: Exam Do's and Don'ts (pages 72–73)</li>
+    </ul>
+  </div>
+
+  <div class="card sci" data-ci="7">
+    <h3>CSI</h3>
+    <ul class="topics">
+      <li>Chromatography Lab</li>
+      <li>Thermal Insulators</li>
+      <li>Blood Basics and Blood Typing</li>
+    </ul>
+  </div>
+
+  <div class="card social" data-ci="8">
+    <h3>ประวัติศาสตร์</h3>
+    <h4>อาณาจักรรัตนโกสินทร์</h4>
+    <ul class="topics">
+      <li>ผลงานของบุคคลสำคัญในสมัยรัตนโกสินทร์
+        <span class="sub">พระบาทสมเด็จพระพุทธยอดฟ้าจุฬาโลกมหาราช · พระบาทสมเด็จพระจุลจอมเกล้าเจ้าอยู่หัว · สมเด็จพระบวรราชเจ้ามหาสุรสิงหนาท</span></li>
+      <li>ภูมิปัญญาและคุณค่าของภูมิปัญญาสมัยรัตนโกสินทร์
+        <span class="sub">ด้านสถาปัตยกรรม · ด้านประติมากรรม · ด้านจิตรกรรม · ด้านวรรณกรรม</span></li>
+    </ul>
+  </div>
+
+  <div class="card other" data-ci="9">
+    <h3>ภาษาจีน</h3>
+    <h4>บทที่ 5 <span class="zh">中国菜很好吃。</span> <span class="py">Zhōngguó cài hěn hǎochī</span> — อาหารจีนอร่อยมาก</h4>
+    <ul class="topics">
+      <li>เนื้อหาและคำศัพท์บทที่ 5 หนังสือเรียน JoinChinese for Kids หน้า 27–31</li>
+      <li>คำศัพท์เพิ่มเติมและบทสนทนา หนังสือแบบฝึกทักษะฟัง-พูด (เทอม 2) หน้า 4–5</li>
+      <li>ไวยากรณ์ <span class="zh">很</span> + คำคุณศัพท์
+        <span class="sub">เช่น <span class="zh">很好吃</span> (hěn hǎochī)、<span class="zh">很喜欢</span> (hěn xǐhuan)</span></li>
+      <li>ไวยากรณ์ <span class="zh">第…次</span> ใช้บอกลำดับ
+        <span class="sub">เช่น <span class="zh">第一次</span> (dì yī cì)、<span class="zh">第二次</span> (dì èr cì)</span></li>
+      <li>ไวยากรณ์ ประโยคคำถาม <span class="zh">吗</span>? (ma) วางไว้ท้ายประโยคบอกเล่า</li>
+      <li>ไวยากรณ์ <span class="zh">不过</span> (búguò) แต่/แต่ว่า
+        <span class="sub">เช่น <span class="zh">菜很好吃，不过我吃饱了。</span> (cài hěn hǎochī, búguò wǒ chī bǎo le)</span></li>
+    </ul>
+    <h4>บทที่ 6 <span class="zh">我们去大皇宫还是水上市场?</span> <span class="py">Wǒmen qù Dà huánggōng háishi shuǐshàng shìchǎng</span> — พวกเราจะไปพระบรมมหาราชวังหรือตลาดน้ำดี</h4>
+    <ul class="topics">
+      <li>เนื้อหาและคำศัพท์บทที่ 6 หนังสือเรียน JoinChinese for Kids หน้า 32–38</li>
+      <li>คำศัพท์เพิ่มเติมและบทสนทนา หนังสือแบบฝึกทักษะฟัง-พูด (เทอม 2) หน้า 8–9</li>
+      <li>ไวยากรณ์ <span class="zh">星期 = 周</span> (xīngqī = zhōu) สัปดาห์ / วันในสัปดาห์
+        <span class="sub">วันในสัปดาห์: <span class="zh">星期一 = 周一、星期二 = 周二</span></span>
+        <span class="sub">สัปดาห์: <span class="zh">上星期、下星期、这星期、那星期</span> (shàng / xià / zhè / nà xīngqī)</span></li>
+      <li>ไวยากรณ์ <span class="zh">还是</span> (háishi) หรือว่า: A + <span class="zh">还是</span> + B</li>
+      <li>ไวยากรณ์ <span class="zh">怎么</span> (zěnme) อย่างไร + คำกริยา
+        <span class="sub">เช่น <span class="zh">怎么去</span> (zěnme qù)、<span class="zh">怎么读</span> (zěnme dú)</span></li>
+    </ul>
+  </div>
+
+</section>
+
+<section id="schedule" hidden>
+  <h2>ตารางสอบ ป.4–ป.6 · ศุกร์ 11 ธ.ค. 69</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>เวลา</th><th>รายวิชา</th><th>เวลาทำข้อสอบ</th></tr></thead>
+      <tbody>
+        <tr class="thai"><td>08.15 – 09.15 น.</td><td class="subj">ภาษาไทย</td><td>60 นาที</td></tr>
+        <tr class="break"><td>09.15 – 09.35 น.</td><td colspan="2">พัก 20 นาที</td></tr>
+        <tr class="math"><td>09.35 – 10.50 น.</td><td class="subj">คณิตศาสตร์</td><td>75 นาที</td></tr>
+        <tr class="break"><td>10.50 – 11.00 น.</td><td colspan="2">พัก 10 นาที</td></tr>
+        <tr class="social"><td>11.00 – 12.00 น.</td><td class="subj">สังคม</td><td>60 นาที</td></tr>
+        <tr class="break"><td>12.00 – 13.10 น.</td><td colspan="2">พักเที่ยง 70 นาที</td></tr>
+        <tr class="sci"><td>13.10 – 14.10 น.</td><td class="subj">วิทยาศาสตร์</td><td>60 นาที</td></tr>
+        <tr class="break"><td>14.10 – 14.30 น.</td><td colspan="2">พัก 20 นาที</td></tr>
+        <tr class="eng"><td>14.30 – 15.30 น.</td><td class="subj">ภาษาอังกฤษ</td><td>60 นาที</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">หมายเหตุ: รายวิชาอื่น ๆ จะวัดและประเมินผลในคาบเรียน ตามดุลยพินิจของครูผู้สอน</p>
+</section>
+
+<section id="in-table" hidden>
+  <h2>เนื้อหาสอบในตาราง</h2>
+  <p class="note">สอบศุกร์ 11 ธันวาคม 2569 ทั้ง 5 วิชา ตามตารางสอบด้านบน · ติ๊กถูกหัวข้อที่ทบทวนแล้วได้</p>
+
+  <div class="card thai" data-ci="0">
+    <h3>ภาษาไทย <span class="when">08.15 – 09.15 น.</span></h3>
+    <ul class="topics">
+      <li>ชนิดและหน้าที่ของคำบุพบทและคำเชื่อม</li>
+      <li>การแต่งบทร้อยกรองประเภทกลอนสุภาพ</li>
+      <li>การระบุลักษณะของประโยค (ประโยคสามัญ ประโยครวม และประโยคซ้อน)</li>
+      <li>การวิเคราะห์และเปรียบเทียบสำนวนที่เป็นคำพังเพยและสุภาษิต</li>
+      <li>คำที่มาจากภาษาต่างประเทศที่ใช้ในภาษาไทย</li>
+      <li>การอธิบายคุณค่าของวรรณคดีจากเรื่อง สุภาษิตสอนหญิง และบทอาขยาน เรื่อง ผู้ชนะ</li>
+    </ul>
+  </div>
+
+  <div class="card math" data-ci="1">
+    <h3>คณิตศาสตร์ <span class="when">09.35 – 10.50 น.</span></h3>
+    <h4>แบบรูป</h4>
+    <ul class="topics">
+      <li>การหาแบบรูปที่เพิ่มขึ้นโดยการบวกและการคูณ</li>
+      <li>การหาแบบรูปที่ลดลงโดยการลบและการหาร</li>
+      <li>แบบรูปและความสัมพันธ์ของจำนวนและรูปเรขาคณิต</li>
+      <li>โจทย์ปัญหาเกี่ยวกับแบบรูป</li>
+    </ul>
+    <h4>รูปสามเหลี่ยม</h4>
+    <ul class="topics">
+      <li>จำแนกชนิดของรูปสามเหลี่ยมโดยพิจารณาจากขนาดของมุมและพิจารณาจากความยาวด้าน</li>
+      <li>การสร้างรูปสามเหลี่ยมเมื่อกำหนดความยาวด้าน 3 ด้าน</li>
+      <li>การสร้างรูปสามเหลี่ยมเมื่อกำหนดความยาวด้าน 2 ด้าน และขนาดของมุม 1 มุม</li>
+      <li>การสร้างรูปสามเหลี่ยมเมื่อกำหนดความยาวด้าน 1 ด้าน และขนาดของมุม 2 มุม</li>
+      <li>ความยาวรอบรูปของรูปสามเหลี่ยม</li>
+      <li>พื้นที่ของรูปสามเหลี่ยม</li>
+      <li>โจทย์ปัญหาเกี่ยวกับความยาวรอบรูปและพื้นที่ของรูปสามเหลี่ยม</li>
+    </ul>
+  </div>
+
+  <div class="card social" data-ci="2">
+    <h3>สังคม <span class="when">11.00 – 12.00 น.</span></h3>
+    <h4>เรื่อง เศรษฐศาสตร์</h4>
+    <ul class="topics">
+      <li>ผู้ผลิต ผู้บริโภค</li>
+      <li>หลักการใช้ทรัพยากรเกิดประโยชน์สูงสุด</li>
+      <li>ระบบเศรษฐกิจ และความสัมพันธ์ทางเศรษฐกิจ</li>
+      <li>การรวมกลุ่มเชิงเศรษฐกิจ</li>
+      <li>สิทธิของผู้บริโภคและผู้ใช้แรงงาน</li>
+      <li>ภาษี และหน่วยงานที่จัดเก็บภาษี</li>
+    </ul>
+  </div>
+
+  <div class="card sci" data-ci="3">
+    <h3>วิทยาศาสตร์ <span class="when">13.10 – 14.10 น.</span></h3>
+    <h4>หน่วยที่ 4 หินและซากดึกดำบรรพ์</h4>
+    <ul class="topics">
+      <li>สมบัติทางกายภาพและเคมีของหินและแร่</li>
+      <li>ประเภทและชนิดของหิน</li>
+      <li>กระบวนการเกิดและวัฏจักรของหิน</li>
+      <li>ประโยชน์ของหินและแร่ในชีวิตประจำวัน</li>
+      <li>กระบวนการเกิดซากดึกดำบรรพ์</li>
+      <li>ประเภทของซากดึกดำบรรพ์</li>
+      <li>ประโยชน์ของการศึกษาซากดึกดำบรรพ์</li>
+      <li>ซากดึกดำบรรพ์ในประเทศไทย</li>
+    </ul>
+  </div>
+
+  <div class="card eng" data-ci="4">
+    <h3>English (EEP) <span class="when">14.30 – 15.30 น.</span></h3>
+    <h4>Unit 5: It's a Small World</h4>
+    <ul class="topics">
+      <li>Vocabulary 1</li>
+      <li>Vocabulary 2</li>
+      <li>Grammar 1 — Reported Speech: Statements</li>
+      <li>Grammar 2 — Order of Adjectives</li>
+      <li>Reading Comprehension — (OWSB) Life is Everywhere</li>
+      <li>Reading Comprehension — (OWWB) Web Masters</li>
+      <li>Reading Comprehension — Unseen Reading</li>
+    </ul>
+    <h4>Unit 6: Good Choice</h4>
+    <ul class="topics">
+      <li>Vocabulary 1</li>
+      <li>Vocabulary 2</li>
+      <li>Grammar 1 — Reported Speech: Imperatives</li>
+      <li>Grammar 2 — Reported Speech: Questions</li>
+      <li>Reading Comprehension — (OWSB) Be an Ad Detective!</li>
+      <li>Reading Comprehension — (OWWB) Cool Stuff – for Free!</li>
+      <li>Reading Comprehension — Unseen Reading</li>
+    </ul>
+  </div>
+  <div class="tools"><button type="button" id="reset">ล้างเครื่องหมายถูกทั้งหมด</button><button type="button" onclick="window.print()">พิมพ์หน้านี้</button></div>
+</section>
+
+<footer>สู้ ๆ นะ ✌️ ทบทวนทีละหัวข้อ เดี๋ยวก็ครบ</footer>
+</div>
+
+<script src="plan.js?v=20261113h"></script>
+<script>
+(function () {
+  // ---------- เช็กลิสต์บนหน้าแรก: ทุกเรื่อง เรียงสอบนอกตารางก่อน แล้วสอบในตาราง ติ๊กเรื่องที่ทำแล้ว ----------
+  // (ข้อมูลรายการอยู่ใน plan.js ติ๊กที่นี่หรือที่ plan.html ก็เป็นชุดเดียวกัน)
+  (function () {
+    var box = document.getElementById('todaybox');
+    if (!window.TODO) { box.style.display = 'none'; return; }
+    var state = todoLoad(), counters = [], boxes = [];
+    var allItems = todoAll().map(function (x) { return x.item; });
+    function countIn(items) { return items.filter(function (it) { return state[todoId(it)]; }).length; }
+    box.innerHTML = '<h2>📋 เช็กลิสต์ <span class="cnt"></span></h2><p class="sync" id="syncnote"></p>';
+    var total = box.querySelector('.cnt'), syncNote = box.querySelector('#syncnote');
+    function refresh() {
+      counters.forEach(function (f) { f(); });
+      var n = countIn(allItems);
+      total.textContent = 'ทำแล้ว ' + n + '/' + allItems.length + (n === allItems.length ? ' เก่งมาก 🎉' : '');
+    }
+    TODO.forEach(function (g) {
+      var items = [];
+      g.subjects.forEach(function (sj) { items = items.concat(sj.items); });
+      var h = document.createElement('h3');
+      h.innerHTML = '<span>' + g.title + '</span><span class="cnt"></span>';
+      box.appendChild(h);
+      var gc = h.querySelector('.cnt');
+      counters.push(function () { gc.textContent = countIn(items) + '/' + items.length; });
+      var when = document.createElement('p');
+      when.className = 'when';
+      when.textContent = g.when;
+      box.appendChild(when);
+      var ul = document.createElement('ul');
+      items.forEach(function (it) {
+        var id = todoId(it);
+        var li = document.createElement('li'), label = document.createElement('label'), cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.checked = !!state[id];
+        li.classList.toggle('done', cb.checked);
+        cb.addEventListener('change', function () {
+          // todoSet: อ่านของล่าสุดก่อนบันทึก (ไม่ทับแท็บอื่น) แล้วส่งขึ้น host ให้ทุกเครื่องเห็นเหมือนกัน
+          // (สำรอง: ถ้าได้ plan.js รุ่นเก่าที่ยังไม่มี todoSet ก็ยังเก็บในเครื่องได้)
+          state = window.todoSet ? todoSet(id, cb.checked) : (function (s) { if (cb.checked) s[id] = 1; else delete s[id]; todoSave(s); return s; })(todoLoad());
+          li.classList.toggle('done', cb.checked);
+          refresh();
+        });
+        boxes.push({ id: id, cb: cb, li: li });
+        var t = document.createElement('span');
+        t.className = 't';
+        t.innerHTML = it[0] ? '<span class="subj">' + TODO_SUBJECTS[it[0]] + '</span>' : '📖 ';
+        t.appendChild(document.createTextNode(it[2]));
+        label.appendChild(cb); label.appendChild(t); li.appendChild(label);
+        if (todoHref(it)) {
+          // "เปิด" = ป๊อปอัปเนื้อหาเต็มจอทับหน้านี้ (todoLink ใน plan.js) กด ✕ ปิด แล้วกลับมาติ๊กที่นี่ · งาน 📖 ก็มีเนื้อหาช่วยฝึกแล้ว
+          var a = document.createElement('a');
+          a.href = todoHref(it); a.textContent = 'เปิด →';
+          a.target = '_blank'; a.rel = 'noopener';   // สำรอง: คลิกกลาง / Ctrl+คลิก เปิดแท็บใหม่
+          if (window.todoLink) todoLink(a, it);
+          li.appendChild(a);
+        }
+        ul.appendChild(li);
+      });
+      box.appendChild(ul);
+    });
+    refresh();
+    function redraw() {
+      state = todoLoad();
+      boxes.forEach(function (b) { b.cb.checked = !!state[b.id]; b.li.classList.toggle('done', b.cb.checked); });
+      refresh();
+    }
+    // ติ๊กจากอีกแท็บ (เช่น เปิดหน้าแรกไว้สองแท็บ): อัปเดตช่องติ๊กและตัวนับในแท็บนี้ให้ตรงกัน
+    window.addEventListener('storage', function (e) { if (e.key === TODO_KEY) redraw(); });
+    // ได้ของล่าสุดจาก host (ติ๊กจากเครื่องอื่น) หรือส่งไม่สำเร็จ
+    window.addEventListener('todo-sync', function (e) {
+      if (e.detail === 'ok') { redraw(); syncNote.textContent = '☁️ ติ๊กตรงกันทุกเครื่อง'; syncNote.className = 'sync'; }
+      else { syncNote.textContent = '⚠️ ยังส่งการติ๊กขึ้นเว็บไม่ได้ (เน็ตหลุด?) ติ๊กไว้ในเครื่องนี้ก่อน จะส่งให้เองเมื่อเน็ตกลับมา'; syncNote.className = 'sync off'; }
+    });
+    if (window.todoSync) todoSync(true);
+  })();
+
+  var KEY = 'termtem-midterm2-2569';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  // ---------- ทบทวน + ข้อสอบ ----------
+  // [วิชา, ชื่อบนการ์ด, สี, จำนวนข้อ, เรื่องของการ์ดนี้ (ไม่ใส่ = ทั้งวิชา · หน้าเนื้อหาไม่ได้อ่าน ?t= แล้ว ใช้แค่แยกการ์ด), คำอธิบายเพิ่ม]
+  // English มีทั้งสองกลุ่ม: ตำแหน่ง 0–2, 7 ใน q/english.js สอบในตาราง · 3–6 สอบนอกตาราง (หน้า English เรียงแบบเช็กลิสต์ตาม order)
+  var GROUPS = [
+    ['subjects', [
+      ['thai', 'ภาษาไทย', '#8fb1dc', 48], ['math', 'คณิตศาสตร์', '#e9a47f', 40], ['social', 'สังคม', '#e8c84a', 42],
+      ['science', 'วิทยาศาสตร์', '#93c178', 37], ['english', 'English', '#b57fe0', 27, 0, 'Reported Speech · Order of Adjectives']
+    ]],
+    ['subjects-off', [
+      ['english', 'English', '#b57fe0', 27, 3, 'English for Daily Life · Develop Reading Skills'],
+      ['chinese', 'ภาษาจีน', '#9a96ad', 25], ['history', 'ประวัติศาสตร์', '#e8c84a', 25], ['csi', 'CSI', '#93c178', 29]
+    ]]
+  ];
+  var best = {};
+  try { best = JSON.parse(localStorage.getItem('termtem-quiz-best')) || {}; } catch (e) {}
+  GROUPS.forEach(function (g) {
+    var grid = document.getElementById(g[0]);
+    g[1].forEach(function (s) {
+      var a = document.createElement('a'), part = s[4] != null;
+      a.href = 'quiz.html?s=' + s[0] + (part ? '&t=' + s[4] : '');
+      a.style.borderTopColor = s[2];
+      var b = part ? null : best[s[0]];
+      a.innerHTML = '<b>' + s[1] + '</b>' + (s[5] ? '<span>' + s[5] + '</span>' : '') +
+        '<span>สรุปเนื้อหา + ข้อสอบ ' + s[3] + ' ข้อ</span>' +
+        (b ? '<span class="best">คะแนนดีที่สุด ' + b.score + '/' + b.total + '</span>' : part ? '' : '<span>ยังไม่ได้ลองทำ</span>');
+      grid.appendChild(a);
+    });
+  });
+  // วิชาของการ์ดหัวข้อ ตามค่า data-ci ของการ์ด (0–4 สอบในตาราง, 5–9 สอบนอกตาราง)
+  var CARD_SUBJECT = ['thai', 'math', 'social', 'science', 'english', 'english', 'english', 'csi', 'history', 'chinese'];
+
+  var cards = document.querySelectorAll('.card');
+  function refresh(card) {
+    var all = card.querySelectorAll('input[type=checkbox]');
+    var done = card.querySelectorAll('input[type=checkbox]:checked');
+    card.querySelector('.prog').textContent = done.length + '/' + all.length;
+  }
+  cards.forEach(function (card) {
+    var ci = +card.getAttribute('data-ci');   // ลำดับเดิมของการ์ด ใช้เป็นคีย์ของเครื่องหมายถูก จึงไม่เปลี่ยนเมื่อย้ายตำแหน่งการ์ด
+    var prog = document.createElement('span');
+    prog.className = 'prog';
+    card.querySelector('h3').appendChild(prog);
+    card.querySelectorAll('ul.topics > li').forEach(function (li, i) {
+      var id = 'c' + ci + '-' + i;
+      var label = document.createElement('label');
+      var box = document.createElement('input');
+      box.type = 'checkbox';
+      var span = document.createElement('span');
+      while (li.firstChild) span.appendChild(li.firstChild);
+      label.appendChild(box); label.appendChild(span); li.appendChild(label);
+      if (state[id]) { box.checked = true; li.classList.add('done'); }
+      box.addEventListener('change', function () {
+        if (box.checked) state[id] = 1; else delete state[id];
+        li.classList.toggle('done', box.checked);
+        save(); refresh(card);
+      });
+    });
+    refresh(card);
+    if (CARD_SUBJECT[ci]) {
+      var link = document.createElement('a');
+      link.className = 'practice';
+      link.href = 'quiz.html?s=' + CARD_SUBJECT[ci];
+      link.textContent = 'ทบทวน + ทำข้อสอบ →';
+      card.appendChild(link);
+    }
+  });
+
+  document.getElementById('reset').addEventListener('click', function () {
+    if (!confirm('ล้างเครื่องหมายถูกทั้งหมด?')) return;
+    state = {}; save();
+    document.querySelectorAll('ul.topics input').forEach(function (b) { b.checked = false; });
+    document.querySelectorAll('ul.topics li').forEach(function (li) { li.classList.remove('done'); });
+    cards.forEach(refresh);
+  });
+
+  // นับถอยหลัง: สอบนอกตารางก่อน (30 พ.ย. – 3 ธ.ค.) แล้วสอบในตาราง (11 ธ.ค.)
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  function daysTo(m, d) { return Math.round((new Date(2026, m, d) - today) / 86400000); }
+  var offStart = daysTo(10, 30), offEnd = daysTo(11, 3), inDay = daysTo(11, 11), lines = [];
+  if (offStart > 0) lines.push('สอบนอกตาราง เริ่มจันทร์ 30 พ.ย. 69 — <b>อีก ' + offStart + ' วัน</b>');
+  else if (offEnd >= 0) lines.push('<b>ช่วงสอบนอกตาราง</b> 30 พ.ย. – 3 ธ.ค. 69 — สู้ ๆ');
+  if (inDay > 0) lines.push('สอบในตาราง ศุกร์ 11 ธ.ค. 69 — <b>อีก ' + inDay + ' วัน</b>');
+  else if (inDay === 0) lines.push('<b>วันนี้สอบในตาราง!</b> ศุกร์ 11 ธันวาคม 2569 — สู้ ๆ');
+  else lines.push('สอบกลางภาคผ่านไปแล้ว (ศุกร์ 11 ธันวาคม 2569)');
+  document.getElementById('countdown').innerHTML = lines.map(function (l) { return '<div>' + l + '</div>'; }).join('');
+})();
+</script>
+</body>
+</html>
